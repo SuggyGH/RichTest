@@ -17,6 +17,9 @@ node {
 		echo ex.toString()
 		currentBuild.result = 'FAILURE'
 	}
+	finally{
+		//cleanup
+	}
     }
     stage('Test') {
         echo 'Testing....'
