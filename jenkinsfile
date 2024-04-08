@@ -10,7 +10,7 @@ node {
 		withDotNet(sdk: "sdk6"){
 	    		sh 'dotnet build ConsoleApp1'
 	    		echo 'Build new feature'
-			releasenotes(changes: "false")
+			releasenotes(changes: "true")
 		}
 	}
 	finally{
