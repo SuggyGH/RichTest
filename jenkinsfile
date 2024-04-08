@@ -11,7 +11,7 @@ node {
 	    		sh 'dotnet --version'
 	    		sh 'dotnet build ConsoleApp1'
 	    		echo 'Build new feature'
-			releasenotes()
+			releasenotes(changes: "false")
 		}
 	}
 	finally{
