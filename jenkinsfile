@@ -5,11 +5,17 @@ node {
 	git branch: '${branch}', url: 'https://github.com/SuggyGH/RichTest.git'
     }
     stage('Build') {
-        echo 'Building....'
-	withDotNet(sdk: "sdk6"){
-	    sh 'dotnet --version'
-	    sh 'dotnet build ConsoleApp1'
-	    echo 'Build new feature'
+	try {
+        	echo 'Building....'
+		withDotNet(sdk: "sdk6"){
+	    		sh 'dotnet --version'
+	    		sh 'dotnet build ConsoleApp1'
+	    		echo 'Build new feature'
+		}
+    	}catch(ex){
+		echo 'Something went wrong'
+		echo ex.toString()
+		currentBuild.result = 'FAILURE'
 	}
     }
     stage('Test') {
