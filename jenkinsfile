@@ -2,6 +2,7 @@ node {
     stage('SCM') {
 	echo 'Gathering code from version control' 
 	echo 'Test'
+	git branch: '${branch}', url: 'https://github.com/SuggyGH/RichTest.git'
     }
     stage('Build') {
         echo 'Building....'
