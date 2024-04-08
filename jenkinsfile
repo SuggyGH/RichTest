@@ -5,6 +5,11 @@ node {
     }
     stage('Build') {
         echo 'Building....'
+	withDotNet(sdk: "sdk6"){
+	    sh 'dotnet --version'
+	    sh 'dotnet build ConsoleApp1'
+	    echo 'Build new feature'
+	}
     }
     stage('Test') {
         echo 'Testing....'
